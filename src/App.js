@@ -1,5 +1,13 @@
+import Header from "./components/Header";
+import AppBody from "./components/AppBody";
+
 function App() {
-  return ();
+  return (
+    <>
+      <Header />
+      <AppBody />
+    </>
+  );
 }
 
 export default App;
