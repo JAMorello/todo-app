@@ -1,14 +1,14 @@
 import React from "react";
 
-function TodoList({ todoList }) {
+function TodoList({ todoList, deleteItem }) {
   return (
     <div>
       {todoList.map((item) => {
         return (
-          <div>
-            <li key={item.id}>{item.task}</li>
-            <button>Delete</button>
-          </div>
+          <li key={item.id}>
+            <p>{item.task}</p>
+            <button onClick={() => deleteItem(item.id)}>Delete</button>
+          </li>
         );
       })}
       <hr />

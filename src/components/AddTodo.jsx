@@ -1,22 +1,24 @@
 import { useState } from "react";
+import { nanoid } from "nanoid";
 
-function AddTodo() {
-  const [text, setText] = useState("");
+function AddTodo({ alterList }) {
+  const [task, setTask] = useState("");
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    console.log(text);
-    setText("");
+    const item = { id: nanoid(), task: task };
+    alterList(item);
+    setTask("");
   };
 
   return (
-    <form>
+    <form onSubmit={handleAddTodo}>
       <input
         type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
       />
-      <button onClick={handleAddTodo}>Add Task</button>
+      <button type="submit">Add Task</button>
     </form>
   );
 }

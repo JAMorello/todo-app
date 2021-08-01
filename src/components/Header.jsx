@@ -1,9 +1,10 @@
 import React from "react";
+import { Heading } from "@chakra-ui/react";
 
 const Header = () => {
   return (
     <div>
-      <h1>To-do List</h1>
+      <Heading>To-do List</Heading>
       <button>Toogle Color Mode</button>
       <hr />
     </div>

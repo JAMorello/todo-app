@@ -4,7 +4,7 @@ function SortBy() {
   return (
     <form>
       <select>
-        <option selected value="all">
+        <option defaultValue value="all">
           All
         </option>
         <option value="Home">Home</option>
