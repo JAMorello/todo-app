@@ -1,13 +1,33 @@
 import React from "react";
-import { Heading } from "@chakra-ui/react";
+import {
+  HStack,
+  VStack,
+  Heading,
+  IconButton,
+  Divider,
+  Spacer,
+} from "@chakra-ui/react";
+import { FiSun } from "react-icons/fi";
 
 const Header = () => {
   return (
-    <div>
-      <Heading>To-do List</Heading>
-      <button>Toogle Color Mode</button>
-      <hr />
-    </div>
+    <VStack w="100%">
+      <HStack w="50%" p={2}>
+        <Spacer />
+        <Heading size="2xl" alignSelf="center">
+          To-do List App
+        </Heading>
+        <Spacer />
+        <IconButton
+          icon={<FiSun />}
+          size="lg"
+          isRound="true"
+          aria-label="Switch ligh/night mode"
+          alignSelf="flex-end"
+        />
+      </HStack>
+      <Divider />
+    </VStack>
   );
 };
 
