@@ -44,9 +44,18 @@ function AddTodo({ alterList }) {
 
   return (
     <form onSubmit={handleAddTodo}>
-      <VStack>
+      <VStack
+        p={3}
+        mt={2}
+        bg="red.50"
+        borderWidth="2px"
+        borderColor="gray.100"
+        borderRadius="lg"
+      >
         <HStack>
           <Input
+            bg="red.50"
+            borderColor="red.100"
             variant="filled"
             placeholder="Describe task here..."
             type="text"
@@ -56,6 +65,8 @@ function AddTodo({ alterList }) {
             }}
           />
           <Select
+            bg="red.200"
+            borderColor="red.300"
             placeholder="Select category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
@@ -67,7 +78,7 @@ function AddTodo({ alterList }) {
             <option value="Studies">Studies</option>
           </Select>
         </HStack>
-        <Button colorScheme="blue" type="submit">
+        <Button colorScheme="red" type="submit">
           Add Task
         </Button>
       </VStack>

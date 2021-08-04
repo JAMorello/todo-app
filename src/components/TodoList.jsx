@@ -12,6 +12,7 @@ import { FaTrashAlt } from "react-icons/fa";
 function TodoList({ todoList, deleteItem }) {
   return (
     <VStack
+      shadow="md"
       divider={<StackDivider />}
       w="100%"
       borderWidth="1px"

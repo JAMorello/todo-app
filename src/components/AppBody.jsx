@@ -14,14 +14,18 @@ const AppBody = () => {
   const [todoList, setTodoList] = useState(initialList);
   const [filteredList, setFilteredList] = useState(todoList);
   const [filteredCategory, setFilteredCategory] = useState("");
+  const [searchedWord, setSearchedWord] = useState("");
 
   useEffect(() => {
     let showList = todoList;
     if (filteredCategory !== "") {
       showList = todoList.filter((i) => i.category === filteredCategory);
     }
+    if (searchedWord !== "") {
+      showList = showList.filter((i) => i.task.includes(searchedWord));
+    }
     setFilteredList(showList);
-  }, [todoList, filteredCategory]);
+  }, [todoList, filteredCategory, searchedWord]);
 
   const alterList = (todoItem) => {
     const list = [...todoList, todoItem];
@@ -40,7 +44,10 @@ const AppBody = () => {
       maxW={{ base: "90vw", sm: "80vw", md: "60vw", lg: "50vw", xl: "40vw" }}
     >
       <HStack m={2}>
-        <SearchBar />
+        <SearchBar
+          searchedWord={searchedWord}
+          setSearchedWord={setSearchedWord}
+        />
         <Spacer />
         <SortBy
           filteredCategory={filteredCategory}
@@ -48,7 +55,7 @@ const AppBody = () => {
         />
       </HStack>
       <TodoList todoList={filteredList} deleteItem={deleteItem} />
-      <AddTodo alterList={alterList} mt={4} />
+      <AddTodo alterList={alterList} bg="blue" />
     </VStack>
   );
 };
