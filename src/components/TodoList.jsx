@@ -3,6 +3,7 @@ import {
   HStack,
   VStack,
   StackDivider,
+  Divider,
   Spacer,
   Text,
   IconButton,
@@ -22,7 +23,15 @@ function TodoList({ todoList, deleteItem }) {
       {todoList.map((item) => {
         return (
           <HStack key={item.id} w="100%">
-            <Text>{item.task}</Text>
+            <Text w="50%">{item.task}</Text>
+            <Spacer />
+            {item.category ? (
+              <Text color="blue" fontWeight="bold">
+                {item.category}{" "}
+              </Text>
+            ) : (
+              ""
+            )}
             <Spacer />
             <IconButton
               icon={<FaTrashAlt />}

@@ -7,8 +7,8 @@ import AddTodo from "./AddTodo";
 
 const AppBody = () => {
   const initialList = [
-    { id: 1, task: "Bath" },
-    { id: 2, task: "Eat" },
+    { id: 1, task: "Bath", category: "" },
+    { id: 2, task: "Eat", category: "Sports" },
   ];
 
   const [todoList, setTodoList] = useState(initialList);
