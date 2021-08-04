@@ -55,7 +55,7 @@ const AppBody = () => {
         />
       </HStack>
       <TodoList todoList={filteredList} deleteItem={deleteItem} />
-      <AddTodo alterList={alterList} bg="blue" />
+      <AddTodo alterList={alterList} />
     </VStack>
   );
 };

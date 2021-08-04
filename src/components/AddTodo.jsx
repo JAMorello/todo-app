@@ -1,14 +1,32 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import { HStack, VStack, Input, Button, Select } from "@chakra-ui/react";
+import {
+  HStack,
+  VStack,
+  Input,
+  Button,
+  Select,
+  useToast,
+} from "@chakra-ui/react";
 
 function AddTodo({ alterList }) {
   const [task, setTask] = useState("");
   const [category, setCategory] = useState("");
   const [color, setColor] = useState("");
+  const alert = useToast();
 
   const handleAddTodo = (e) => {
     e.preventDefault();
+
+    if (!task) {
+      alert({
+        title: "Task description missing",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
 
     const item = {
       id: nanoid(),

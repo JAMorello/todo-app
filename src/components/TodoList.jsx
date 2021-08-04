@@ -6,10 +6,19 @@ import {
   Spacer,
   Text,
   IconButton,
+  Badge,
 } from "@chakra-ui/react";
 import { FaTrashAlt } from "react-icons/fa";
 
 function TodoList({ todoList, deleteItem }) {
+  if (!todoList.length) {
+    return (
+      <Badge colorScheme="green" p={4} m={4}>
+        No task to show
+      </Badge>
+    );
+  }
+
   return (
     <VStack
       shadow="md"
