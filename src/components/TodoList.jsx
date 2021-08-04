@@ -7,8 +7,9 @@ import {
   Text,
   IconButton,
   Badge,
+  Tooltip,
 } from "@chakra-ui/react";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaTrashAlt, FaRegEdit } from "react-icons/fa";
 
 function TodoList({ todoList, deleteItem }) {
   if (!todoList.length) {
@@ -42,11 +43,32 @@ function TodoList({ todoList, deleteItem }) {
               ""
             )}
             <Spacer />
-            <IconButton
-              icon={<FaTrashAlt />}
-              isRound="true"
-              onClick={() => deleteItem(item.id)}
-            />
+            <Tooltip
+              label="Edit task"
+              fontSize="sm"
+              placement="top"
+              openDelay={500}
+            >
+              <IconButton
+                icon={<FaRegEdit />}
+                colorScheme="yellow"
+                isRound="true"
+                onClick={() => deleteItem(item.id)}
+              />
+            </Tooltip>
+            <Tooltip
+              label="Delete task"
+              fontSize="sm"
+              placement="top"
+              openDelay={500}
+            >
+              <IconButton
+                icon={<FaTrashAlt />}
+                colorScheme="red"
+                isRound="true"
+                onClick={() => deleteItem(item.id)}
+              />
+            </Tooltip>
           </HStack>
         );
       })}
