@@ -32,11 +32,11 @@ function TodoList({ todoList, deleteItem }) {
       {todoList.map((item) => {
         return (
           <HStack key={item.id} w="100%">
-            <Text w="50%">{item.task}</Text>
+            <Text w="70%">{item.task}</Text>
             <Spacer />
             {item.category ? (
               <Text color={item.colorCat} fontWeight="bold">
-                {item.category}{" "}
+                {item.category}
               </Text>
             ) : (
               ""
