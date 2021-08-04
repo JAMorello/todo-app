@@ -6,14 +6,11 @@ import {
   IconButton,
   Divider,
   Spacer,
-  useColorMode,
 } from "@chakra-ui/react";
 import { FiSun } from "react-icons/fi";
 import { RiMoonClearFill } from "react-icons/ri";
 
-const Header = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-
+const Header = ({ colorMode, toggleColorMode }) => {
   return (
     <VStack w="100%">
       <HStack w="50%" p={2}>

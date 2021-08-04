@@ -5,7 +5,7 @@ import SortBy from "./SortBy";
 import TodoList from "./TodoList";
 import AddTodo from "./AddTodo";
 
-const AppBody = () => {
+const AppBody = ({ colorMode }) => {
   // const demoList = [
   //   {
   //     id: 1,
@@ -150,7 +150,7 @@ const AppBody = () => {
         />
       </HStack>
       <TodoList todoList={filteredList} deleteItem={deleteItem} />
-      <AddTodo alterList={alterList} />
+      <AddTodo alterList={alterList} colorMode={colorMode} />
     </VStack>
   );
 };

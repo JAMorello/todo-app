@@ -9,7 +9,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-function AddTodo({ alterList }) {
+function AddTodo({ alterList, colorMode }) {
   const [task, setTask] = useState("");
   const [category, setCategory] = useState("");
   const [color, setColor] = useState("");
@@ -65,15 +65,15 @@ function AddTodo({ alterList }) {
       <VStack
         p={3}
         mt={2}
-        bg="red.50"
+        bg={colorMode === "light" ? "red.50" : "teal.600"}
         borderWidth="2px"
-        borderColor="gray.100"
+        borderColor={colorMode === "light" ? "gray.100" : "teal.500"}
         borderRadius="lg"
       >
         <HStack>
           <Input
-            bg="red.50"
-            borderColor="red.100"
+            bg={colorMode === "light" ? "red.50" : "teal.700"}
+            borderColor={colorMode === "light" ? "red.100" : "teal.500"}
             variant="filled"
             placeholder="Describe task here..."
             type="text"
@@ -83,8 +83,8 @@ function AddTodo({ alterList }) {
             }}
           />
           <Select
-            bg="red.200"
-            borderColor="red.300"
+            bg={colorMode === "light" ? "red.200" : "teal.900"}
+            borderColor={colorMode === "light" ? "red.300" : "teal.500"}
             placeholder="Select category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
@@ -96,7 +96,10 @@ function AddTodo({ alterList }) {
             <option value="Studies">Studies</option>
           </Select>
         </HStack>
-        <Button colorScheme="red" type="submit">
+        <Button
+          colorScheme={colorMode === "light" ? "red" : "green"}
+          type="submit"
+        >
           Add Task
         </Button>
       </VStack>
