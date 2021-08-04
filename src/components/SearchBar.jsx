@@ -1,20 +1,19 @@
 import { useState } from "react";
+import { Input } from "@chakra-ui/react";
 
 function SearchBar() {
   const [search, setSearch] = useState("");
 
   return (
-    <form>
-      <input
-        type="text"
-        placeholder="search..."
-        value={search}
-        onChange={(e) => {
-          setSearch(e.target.value);
-        }}
-      />
-      <button>Search</button>
-    </form>
+    <Input
+      variant="filled"
+      type="text"
+      placeholder="Search task..."
+      value={search}
+      onChange={(e) => {
+        setSearch(e.target.value);
+      }}
+    />
   );
 }
 

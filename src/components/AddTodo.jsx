@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import { HStack, VStack, Input, Button, Select } from "@chakra-ui/react";
 
@@ -9,6 +9,7 @@ function AddTodo({ alterList }) {
 
   const handleAddTodo = (e) => {
     e.preventDefault();
+
     const item = {
       id: nanoid(),
       task: task,
@@ -19,8 +20,7 @@ function AddTodo({ alterList }) {
     setTask("");
   };
 
-  const handleOnChange = (e) => {
-    setTask(e.target.value);
+  useEffect(() => {
     switch (category) {
       case "House":
         setColor("gray.500");
@@ -40,7 +40,7 @@ function AddTodo({ alterList }) {
       default:
         setColor("");
     }
-  };
+  }, [category]);
 
   return (
     <form onSubmit={handleAddTodo}>
@@ -51,7 +51,9 @@ function AddTodo({ alterList }) {
             placeholder="Describe task here..."
             type="text"
             value={task}
-            onChange={handleOnChange}
+            onChange={(e) => {
+              setTask(e.target.value);
+            }}
           />
           <Select
             placeholder="Select category"
