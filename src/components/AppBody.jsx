@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { HStack, VStack } from "@chakra-ui/react";
 import SearchBar from "./SearchBar";
 import SortBy from "./SortBy";
 import TodoList from "./TodoList";
@@ -23,12 +24,17 @@ const AppBody = () => {
   };
 
   return (
-    <div>
-      <SearchBar />
-      <SortBy />
-      <TodoList todoList={todoList} deleteItem={deleteItem} />
-      <AddTodo alterList={alterList} />
-    </div>
+    <VStack
+      w="100%"
+      maxW={{ base: "90vw", sm: "80vw", md: "60vw", lg: "50vw", xl: "40vw" }}
+    >
+      <HStack>
+        <SearchBar />
+        <SortBy />
+      </HStack>
+      <TodoList todoList={todoList} deleteItem={deleteItem} p={2} />
+      <AddTodo alterList={alterList} p={2} />
+    </VStack>
   );
 };
 

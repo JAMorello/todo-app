@@ -1,18 +1,38 @@
 import React from "react";
+import {
+  HStack,
+  VStack,
+  StackDivider,
+  Spacer,
+  Text,
+  IconButton,
+} from "@chakra-ui/react";
+import { FaTrashAlt } from "react-icons/fa";
 
 function TodoList({ todoList, deleteItem }) {
   return (
-    <div>
+    <VStack
+      divider={<StackDivider />}
+      w="100%"
+      borderWidth="1px"
+      borderColor="gray.200"
+      borderRadius="lg"
+      p={3}
+    >
       {todoList.map((item) => {
         return (
-          <li key={item.id}>
-            <p>{item.task}</p>
-            <button onClick={() => deleteItem(item.id)}>Delete</button>
-          </li>
+          <HStack key={item.id} w="100%">
+            <Text>{item.task}</Text>
+            <Spacer />
+            <IconButton
+              icon={<FaTrashAlt />}
+              isRound="true"
+              onClick={() => deleteItem(item.id)}
+            />
+          </HStack>
         );
       })}
-      <hr />
-    </div>
+    </VStack>
   );
 }
 

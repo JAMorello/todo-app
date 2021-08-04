@@ -15,7 +15,7 @@ const Header = () => {
       <HStack w="50%" p={2}>
         <Spacer />
         <Heading size="2xl" alignSelf="center">
-          To-do List App
+          To-do List
         </Heading>
         <Spacer />
         <IconButton
