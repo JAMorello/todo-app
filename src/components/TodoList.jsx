@@ -3,7 +3,6 @@ import {
   HStack,
   VStack,
   StackDivider,
-  Divider,
   Spacer,
   Text,
   IconButton,
@@ -26,7 +25,7 @@ function TodoList({ todoList, deleteItem }) {
             <Text w="50%">{item.task}</Text>
             <Spacer />
             {item.category ? (
-              <Text color="blue" fontWeight="bold">
+              <Text color={item.colorCat} fontWeight="bold">
                 {item.category}{" "}
               </Text>
             ) : (

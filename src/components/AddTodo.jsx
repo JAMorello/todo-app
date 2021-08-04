@@ -5,12 +5,41 @@ import { HStack, VStack, Input, Button, Select } from "@chakra-ui/react";
 function AddTodo({ alterList }) {
   const [task, setTask] = useState("");
   const [category, setCategory] = useState("");
+  const [color, setColor] = useState("");
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    const item = { id: nanoid(), task: task, category: category };
+    const item = {
+      id: nanoid(),
+      task: task,
+      category: category,
+      colorCat: color,
+    };
     alterList(item);
     setTask("");
+  };
+
+  const handleOnChange = (e) => {
+    setTask(e.target.value);
+    switch (category) {
+      case "House":
+        setColor("gray.500");
+        break;
+      case "Work":
+        setColor("red.500");
+        break;
+      case "Family":
+        setColor("orange.500");
+        break;
+      case "Sports":
+        setColor("blue.500");
+        break;
+      case "Studies":
+        setColor("green.500");
+        break;
+      default:
+        setColor("");
+    }
   };
 
   return (
@@ -22,7 +51,7 @@ function AddTodo({ alterList }) {
             placeholder="Describe task here..."
             type="text"
             value={task}
-            onChange={(e) => setTask(e.target.value)}
+            onChange={handleOnChange}
           />
           <Select
             placeholder="Select category"
