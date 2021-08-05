@@ -132,6 +132,13 @@ const AppBody = ({ colorMode }) => {
     setTodoList(newList);
   };
 
+  const editItem = (currentItem) => {
+    const updatedList = todoList.map((oldItem) =>
+      oldItem.id === currentItem.id ? currentItem : oldItem
+    );
+    setTodoList(updatedList);
+  };
+
   return (
     <VStack
       m={2}
@@ -149,7 +156,12 @@ const AppBody = ({ colorMode }) => {
           setFilteredCategory={setFilteredCategory}
         />
       </HStack>
-      <TodoList todoList={filteredList} deleteItem={deleteItem} />
+      <TodoList
+        todoList={filteredList}
+        deleteItem={deleteItem}
+        editItem={editItem}
+        colorMode={colorMode}
+      />
       <AddTodo alterList={alterList} colorMode={colorMode} />
     </VStack>
   );
