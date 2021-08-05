@@ -5,7 +5,11 @@ import ToogleColorModeButton from "./ToogleColorModeButton";
 const Header = ({ colorMode, toggleColorMode }) => {
   return (
     <VStack w="100%">
-      <HStack w="50%" p={2}>
+      <HStack
+        w="100%"
+        maxW={{ base: "90vw", sm: "80vw", md: "60vw", lg: "50vw", xl: "40vw" }}
+        p={2}
+      >
         <Spacer />
         <Heading size="2xl" alignSelf="center">
           To-do List

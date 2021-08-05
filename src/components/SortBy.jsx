@@ -1,18 +1,11 @@
-import { Select } from "@chakra-ui/react";
+import SelectCategory from "./SelectCategory";
 
-function SortBy({ filteredCategory, setFilteredCategory }) {
+function SortBy({ selectedCategory, setSelectedCategory }) {
   return (
-    <Select
-      placeholder="Filter by category"
-      value={filteredCategory}
-      onChange={(e) => setFilteredCategory(e.target.value)}
-    >
-      <option value="House">House</option>
-      <option value="Work">Work</option>
-      <option value="Family">Family</option>
-      <option value="Sports">Sports</option>
-      <option value="Studies">Studies</option>
-    </Select>
+    <SelectCategory
+      value={selectedCategory}
+      handleOnChange={setSelectedCategory}
+    />
   );
 }
 
