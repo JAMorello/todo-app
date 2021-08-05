@@ -1,9 +1,11 @@
 import { Select } from "@chakra-ui/react";
 
-const SelectCategory = ({ value, handleOnChange }) => {
+const SelectCategory = ({ value, handleOnChange, placeholder, colorMode }) => {
   return (
     <Select
-      placeholder="Filter by category"
+      bg={colorMode === "light" ? "red.200" : "teal.900"}
+      borderColor={colorMode === "light" ? "red.300" : "teal.500"}
+      placeholder={placeholder}
       value={value}
       onChange={(e) => handleOnChange(e.target.value)}
     >

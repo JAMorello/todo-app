@@ -67,6 +67,7 @@ const AppBody = ({ colorMode }) => {
         <SortBy
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          colorMode={colorMode}
         />
       </HStack>
       <TodoList

@@ -1,67 +1,41 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import {
-  HStack,
-  VStack,
-  Input,
-  Button,
-  Select,
-  useToast,
-} from "@chakra-ui/react";
+import { HStack, VStack, Input, Button } from "@chakra-ui/react";
+import SelectCategory from "./SelectCategory";
+import useToastAlert from "../customHooks/useToastAlert";
+import detectColor from "../utilities/detectColor";
 
-function AddTodo({ alterList, colorMode }) {
+function AddTodo({ addToList, colorMode }) {
+  // Initialize state hooks to create a new task
   const [task, setTask] = useState("");
   const [category, setCategory] = useState("");
+
+  // State for color and efect fired up every time the category changes to change also the color
   const [color, setColor] = useState("");
-  const alert = useToast();
-
-  const handleAddTodo = (e) => {
-    e.preventDefault();
-
-    if (!task) {
-      alert({
-        title: "Task description missing",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-      });
-      return;
-    }
-
-    const item = {
-      id: nanoid(),
-      task: task,
-      category: category,
-      colorCat: color,
-    };
-    alterList(item);
-    setTask("");
-  };
-
   useEffect(() => {
-    switch (category) {
-      case "House":
-        setColor("gray.500");
-        break;
-      case "Work":
-        setColor("red.500");
-        break;
-      case "Family":
-        setColor("orange.500");
-        break;
-      case "Sports":
-        setColor("blue.500");
-        break;
-      case "Studies":
-        setColor("green.500");
-        break;
-      default:
-        setColor("");
-    }
+    detectColor(category, setColor);
   }, [category]);
 
+  // Create a pop up alert using custom Hook
+  const alert = useToastAlert();
+
+  const handleAddTask = (e) => {
+    e.preventDefault();
+
+    if (!alert(task)) {
+      const item = {
+        id: nanoid(),
+        task: task,
+        category: category,
+        colorCat: color,
+      };
+      addToList(item);
+      setTask("");
+    }
+  };
+
   return (
-    <form onSubmit={handleAddTodo}>
+    <form onSubmit={handleAddTask}>
       <VStack
         p={3}
         mt={2}
@@ -82,19 +56,12 @@ function AddTodo({ alterList, colorMode }) {
               setTask(e.target.value);
             }}
           />
-          <Select
-            bg={colorMode === "light" ? "red.200" : "teal.900"}
-            borderColor={colorMode === "light" ? "red.300" : "teal.500"}
+          <SelectCategory
+            colorMode={colorMode}
             placeholder="Select category"
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            <option value="House">House</option>
-            <option value="Work">Work</option>
-            <option value="Family">Family</option>
-            <option value="Sports">Sports</option>
-            <option value="Studies">Studies</option>
-          </Select>
+            handleOnChange={setCategory}
+          />
         </HStack>
         <Button
           colorScheme={colorMode === "light" ? "red" : "green"}
