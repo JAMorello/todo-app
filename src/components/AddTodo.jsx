@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import { HStack, VStack, Input, Button } from "@chakra-ui/react";
+import { HStack, VStack, Button } from "@chakra-ui/react";
 import SelectCategory from "./SelectCategory";
+import TaskInput from "./TaskInput";
 import useToastAlert from "../customHooks/useToastAlert";
 import detectColor from "../utilities/detectColor";
 
@@ -10,7 +11,7 @@ function AddTodo({ addToList, colorMode }) {
   const [task, setTask] = useState("");
   const [category, setCategory] = useState("");
 
-  // State for color and efect fired up every time the category changes to change also the color
+  // State for color and effect fired up every time the category changes to change also the color
   const [color, setColor] = useState("");
   useEffect(() => {
     detectColor(category, setColor);
@@ -45,22 +46,17 @@ function AddTodo({ addToList, colorMode }) {
         borderRadius="lg"
       >
         <HStack>
-          <Input
-            bg={colorMode === "light" ? "red.50" : "teal.700"}
-            borderColor={colorMode === "light" ? "red.100" : "teal.500"}
-            variant="filled"
-            placeholder="Describe task here..."
-            type="text"
+          <TaskInput
             value={task}
-            onChange={(e) => {
-              setTask(e.target.value);
-            }}
+            handleOnChange={(e) => setTask(e.target.value)}
+            placeholder="Describe task here..."
+            colorMode={colorMode}
           />
           <SelectCategory
             colorMode={colorMode}
             placeholder="Select category"
             value={category}
-            handleOnChange={setCategory}
+            handleOnChange={(e) => setCategory(e.target.value)}
           />
         </HStack>
         <Button

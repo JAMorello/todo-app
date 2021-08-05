@@ -7,7 +7,7 @@ const useToastAlert = () => {
   // If the user did not entered a string for the taks, throw a pop up alert and do nothing else
   const checkTask = (task) => {
     let thrownAlert = false;
-    if (!task) {
+    if (!task || task.task === "") {
       alert({
         title: "Task description missing",
         status: "error",

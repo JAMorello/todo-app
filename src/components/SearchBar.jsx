@@ -1,13 +1,12 @@
-import { Input } from "@chakra-ui/react";
+import TaskInput from "./TaskInput";
 
-function SearchBar({ searchedWord, setSearchedWord }) {
+function SearchBar({ searchedWord, setSearchedWord, colorMode }) {
   return (
-    <Input
-      variant="filled"
-      type="text"
-      placeholder="Search task..."
+    <TaskInput
       value={searchedWord}
-      onChange={(e) => setSearchedWord(e.target.value)}
+      handleOnChange={(e) => setSearchedWord(e.target.value)}
+      colorMode={colorMode}
+      placeholder="Search task..."
     />
   );
 }

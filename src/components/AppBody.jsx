@@ -62,6 +62,7 @@ const AppBody = ({ colorMode }) => {
         <SearchBar
           searchedWord={searchedWord}
           setSearchedWord={setSearchedWord}
+          colorMode={colorMode}
         />
         <Spacer />
         <SortBy

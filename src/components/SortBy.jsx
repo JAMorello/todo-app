@@ -5,7 +5,7 @@ function SortBy({ selectedCategory, setSelectedCategory, colorMode }) {
     <SelectCategory
       colorMode={colorMode}
       value={selectedCategory}
-      handleOnChange={setSelectedCategory}
+      handleOnChange={(e) => setSelectedCategory(e.target.value)}
       placeholder="Filter by category"
     />
   );
