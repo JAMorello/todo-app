@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  HStack,
-  VStack,
-  Heading,
-  IconButton,
-  Divider,
-  Spacer,
-} from "@chakra-ui/react";
-import { FiSun } from "react-icons/fi";
-import { RiMoonClearFill } from "react-icons/ri";
+import { HStack, VStack, Heading, Divider, Spacer } from "@chakra-ui/react";
+import ToogleColorModeButton from "./ToogleColorModeButton";
 
 const Header = ({ colorMode, toggleColorMode }) => {
   return (
@@ -18,16 +10,14 @@ const Header = ({ colorMode, toggleColorMode }) => {
         <Heading size="2xl" alignSelf="center">
           To-do List
         </Heading>
+
         <Spacer />
-        <IconButton
-          icon={colorMode === "light" ? <FiSun /> : <RiMoonClearFill />}
-          size="lg"
-          isRound="true"
-          aria-label="Switch ligh/night mode"
-          alignSelf="flex-end"
-          onClick={toggleColorMode}
+        <ToogleColorModeButton
+          colorMode={colorMode}
+          toggleColorMode={toggleColorMode}
         />
       </HStack>
+
       <Divider />
     </VStack>
   );

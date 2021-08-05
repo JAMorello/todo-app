@@ -2,7 +2,8 @@ import Header from "./components/Header";
 import AppBody from "./components/AppBody";
 import { VStack, useColorMode } from "@chakra-ui/react";
 
-function App() {
+const App = () => {
+  // React Hook to know what mode is current and to toogle it
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -11,6 +12,6 @@ function App() {
       <AppBody colorMode={colorMode} />
     </VStack>
   );
-}
+};
 
 export default App;
