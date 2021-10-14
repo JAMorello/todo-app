@@ -2,7 +2,7 @@
 
 ![TODO List](/readme-assets/todo-banner.jpg)
 
-This is the repository of the [Todo List App](). [Last relevant update: 05/08/21]
+This is the repository of the [Todo List App](https://stoic-meninsky-b64800.netlify.app/). [Last relevant update: 05/08/21]
 
 This project uses the following libraries: [React](https://es.reactjs.org/) to create the web application user interface and [Chakra-UI](https://chakra-ui.com/docs/getting-started) for the front-end of the app.
 
@@ -15,7 +15,7 @@ This project uses the following libraries: [React](https://es.reactjs.org/) to c
 
 This web application lets you do all the basic stuff that is expected from a todo list and more! Not only is a CRUD app, you can filter an search through the entire todo list.
 
-First, you can add a task to the list. You must describe it, else it will throw an error, but selecting a category is optional. You can add all the tasks you want!
+First, you can add a task to the list. You must describe it, else it will throw an error, but selecting a category is optional. You can add all the tasks you want and the best part is that you will not lose them! The task are saved in the Local Storage of your browser.
 
 ![Task](/readme-assets/add-task.jpg)
 
@@ -31,12 +31,13 @@ Also, you can search a specific task either with a text input or filtering throu
 
 ![Search adn Filter](/readme-assets/search-filter.jpg)
 
-Last but not least, the application has a button that enables nigth mode! You can find it at the rigthmost of the header.
+Last but not least, the application has a button that enables night mode! You can find it at the rightmost of the header.
 
 ![Night mode](/readme-assets/nightmode.jpg)
 
 ## Possible future implementations
 
-For the moment, we have in mind only one posible implementations that could further improve the application:
+For the moment, we have in mind only two posible implementations that could further improve the application:
 
 - Make the app responsive. Cannot be displayed correctly on smaller devices.
+- Implement a database from where get and post the tasks.
