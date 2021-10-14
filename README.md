@@ -25,7 +25,7 @@ After that, in the center of the application will be listed all the tasks. Each 
 
 Clicking in the edit button will open a modal were you can edit both the task description and the category it belongs.
 
-![Task Modal](/readme-assets/task-modal.jpg)
+![Task Edit](/readme-assets/task-edit.jpg)
 
 Also, you can search a specific task either with a text input or filtering through a category.
 
